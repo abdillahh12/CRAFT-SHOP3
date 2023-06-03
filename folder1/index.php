@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION["login"])) {
+  header("Location: index.php");
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
   <head>
@@ -41,7 +51,10 @@
                 <a class="nav-link" href="#contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="datapemesanan.php">Keranjang Saya</a>
+                <a class="nav-link" href="datapemesanan.php">Pesanan Saya</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
               </li>
             </ul>
           </div>
@@ -141,152 +154,128 @@
 
       <!-- Card -->
       <section id="product">
-        <div class="container">
-          <div class="row row-container ms-4 me-4 card-produk">
+        <div class="container conn-1">
+          <div class="row row-container ms-4 me-4">
             <div class="judul-produk">
               <h3 class="text-3 ms-4 me-4 p-2 text-center mt-2">PRODUCT</h3>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto 5.jpg" height="125px" />
-                </div>
+                <img src="../folder foto/foto 5.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Cucur</h5>
-                  <p class="card-text">Rp. 4000</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <p class="card-text">Rp. 4.000</p>
+                  <a href="../folder produk/kue_cucur.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto1.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto1.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Klepon</h5>
-                  <p class="card-text">Rp. 2000</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <p class="card-text">Rp. 2.000</p>
+                  <a href="../folder produk/kue_klepon.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto2.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto2.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Onde-Onde</h5>
                   <p class="card-text">Rp. 3.500</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <a href="../folder produk/kue_ondeonde.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto3.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto3.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Lemper</h5>
                   <p class="card-text">Rp. 2.500</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <a href="../folder produk/kue_lemper.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto4.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto4.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Talam</h5>
-                  <p class="card-text">Rp. 3000</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <p class="card-text">Rp. 3.000</p>
+                  <a href="../folder produk/kue_talam.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto5.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto5.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Serabi</h5>
-                  <p class="card-text">Rp. 2000</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <p class="card-text">Rp. 2.000</p>
+                  <a href="../folder produk/kue_serabi.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-3">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto6.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto6.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Lapis</h5>
                   <p class="card-text">Rp. 2.000</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <a href="../folder produk/kue_lapis.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-3 mb-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto7.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto7.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Lumpur</h5>
                   <p class="card-text">Rp. 2.500</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <a href="../folder produk/kue_lumpur.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-3 mb-3">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto8.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto8.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Jentik Manis</h5>
-                  <p class="card-text">Rp. 3000</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <p class="card-text">Rp. 3.000</p>
+                  <a href="../folder produk/kue_jentikmanis.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-3">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto9.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto9.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Mangkok</h5>
                   <p class="card-text">Rp. 3.500</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <a href="../folder produk/kue_mangkok.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-3">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto10.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto10.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Lapis Legit</h5>
-                  <p class="card-text">Rp. 2000</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <p class="card-text">Rp. 2.000</p>
+                  <a href="../folder produk/kue_lapislegit.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-6 mt-3 mb-2">
               <div class="card card-1">
-                <div class="inner">
-                  <img src="../folder foto/foto11.jpg" height="125px" width="185px" />
-                </div>
+                <img src="../folder foto/foto11.jpg" height="140px" />
                 <div class="card-body text-center">
                   <h5 class="card-title">Kue Mendut</h5>
                   <p class="card-text">Rp. 2.500</p>
-                  <a href="formpemesanan2.php" class="btn btn-dark d-grid">Beli</a>
+                  <a href="../folder produk/kue_mendut.php" class="btn btn-dark d-grid">Lihat Produk</a>
                 </div>
               </div>
             </div>

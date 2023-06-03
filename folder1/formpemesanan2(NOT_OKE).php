@@ -10,24 +10,26 @@ if(isset($_POST["submit"])) {
   $pemesanan = htmlspecialchars($_POST["pemesanan"]);
 
   // query insert data
-  $query = "INSERT INTO pelanggan
+  $query = "INSERT INTO pelanggan2
                   VALUES
-  ('$id','$nama', '$no_hp', '$alamat', '$barang', '$pemesanan')";
+  ('','$nama', '$no_hp', '$alamat', '$barang', '$pemesanan')";
 
   mysqli_query($connect, $query);
 
   // Cek apakah data berhasil ditambahkan atau tidak
 
-  if(mysqli_affected_rows($connect) > 0) { 
-    echo "<script>alert('Data berhasil ditambahkan');
-          document.location.href = 'datapemesanan.php';
-          </script>"; 
-} else { 
-  echo "<script>
-  alert('Maaf data gagal ditambahkan');
-  document.location.href = 'datapemesanan.php';
-  </script>"; 
-mysqli_error($connect); } } 
+  if(mysqli_affected_rows($connect) > 0) {
+    echo "<script>alert('Data pesanan berhasil ditambahkan');
+    document.location.href = 'datapemesanan.php';
+    </script>";
+  } else {
+    echo "<script>alert('Maaf data pesanan gagal ditambahkan');
+    document.location.href = 'datapemesanan.php';
+    </script>";
+    mysqli_error($connect);
+  }
+
+} 
 
 ?>
 
@@ -54,7 +56,7 @@ mysqli_error($connect); } }
                 <input type="text" name="no_hp" id="no_hp" placeholder="EX: 081389808395" required /> <br />
                 <label for="alamat">ALAMAT PEMBELI: </label>
                 <input type="text" name="alamat" id="alamat" placeholder="EX: Jalan Arjuna 2" required /> <br />
-                <label for="barang">NAMA BARANG: </label>
+                <label for="barang">KUE YANG DIBELI: </label>
                 <input type="text" name="barang" id="barang" placeholder="EX: Kue Talam" required /> <br />
                 <label for="pemesanan">JUMLAH PEMESANAN: </label>
                 <input type="text" name="pemesanan" id="pemesanan" placeholder="EX: 20" required /> <br />

@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+if(!isset($_SESSION["login"])) {
+  header("Location: index.php");
+  exit;
+}
 /* CARA UPDATE CRUD*/
 
 
@@ -10,7 +16,7 @@ $connect = mysqli_connect("localhost", "root", "", "toko_kue");
 $id = $_GET["id"];
 
 // query data pelanggan berdasarkan id
-$plg = query("SELECT * FROM pelanggan WHERE id = $id")[0];
+$plg = query("SELECT * FROM pelanggan2 WHERE id = $id")[0];
 
 if(isset($_POST["submit"])) {
   // Ambil data dari tiap tiap elemen
@@ -22,7 +28,7 @@ if(isset($_POST["submit"])) {
   $pemesanan = htmlspecialchars($_POST["pemesanan"]);
 
   // query insert data
-  $query = "UPDATE pelanggan SET
+  $query = "UPDATE pelanggan2 SET
             nama_pelanggan = '$nama',
             no_hp = '$no_hp',
             alamat = '$alamat',
@@ -34,18 +40,20 @@ if(isset($_POST["submit"])) {
 
   // Cek apakah data berhasil ditambahkan atau tidak
 
-  if(mysqli_affected_rows($connect) > 0) { 
-      echo "<script>
-    alert('Data berhasil diubah');
-    document.location.href = 'datapemesanan.php';
-  </script>"; 
-} else { 
-      echo "
-    <script>
-      alert('Maaf data gagal diubah');
-      document.location.href = 'datapemesanan.php';
-    </script>"; 
-    mysqli_error($connect); } } ?>
+  if(mysqli_affected_rows($connect) >0) { 
+    echo "<script>
+          alert('Data pemesanan berhasil diubah');
+          document.location.href = 'datapemesanan.php';
+          </script>"; 
+        
+  } else { 
+    echo "<script>
+          alert('Maaf data pemesanan gagal diubah');
+          document.location.href = 'datapemesanan.php';
+          </script>"; 
+          mysqli_error($connect); } 
+} 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,34 +65,72 @@ if(isset($_POST["submit"])) {
     <link rel="stylesheet" href="../folder css/formpemesanan2.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="container con-1">
-            <div class="form">
-              <h1 class="text-2 mt-2">FORM UBAH DATA PEMBELIAN</h1>
-              <form action="" method="post">
-                <input type="hidden" name="id" value="<?= $plg["id"];?>">
-                <label for="nama">NAMA PEMBELI: </label>
-                <input type="text" name="nama" id="nama" placeholder="EX: Rahma candani" required value="<?= $plg["nama_pelanggan"];?>"/> <br />
-                <label for="no_hp">NO HP PEMBELI: </label>
-                <input type="text" name="no_hp" id="no_hp" placeholder="EX: 081389808395" required value="<?= $plg["no_hp"];?>"/> <br />
-                <label for="alamat">ALAMAT PEMBELI: </label>
-                <input type="text" name="alamat" id="alamat" placeholder="EX: Jalan Arjuna 2" required value="<?= $plg["alamat"];?>"/> <br />
-                <label for="barang">NAMA BARANG: </label>
-                <input type="text" name="barang" id="barang" placeholder="EX: Kue Talam" required value="<?= $plg["pesanan"];?>"/> <br />
-                <label for="pemesanan">JUMLAH PEMESANAN: </label>
-                <input type="text" name="pemesanan" id="pemesanan" placeholder="EX: 20" required value="<?= $plg["jumlah_pesanan"];?>"/> <br />
-                <div class="form2 mt-3">
-                  <button type="submit" name="submit" class="btn btn-primary">Ubah data</button>
-                  <button type="reset" name="submit" class="btn btn-danger">Cancel</button>
-                </div>
-              </form>
+    <!-- FORM UBAH DATA -->
+    <div class="container mt-5">
+      <div class="judul-produk bg-light pt-2">
+        <h3 class="text-3 ms-4 me-4 p-2 text-center mt-2">FORM UBAH DATA PEMBELIAN</h3>
+
+        <form action="" method="post">
+          <div class="elemen-form m-4 p-4">
+            <div class="mb-3 row" class="nama">
+              <label for="hidden" class="col-sm-2 col-form-label"></label>
+              <div class="col-sm-10">
+                <input type="hidden" name="id" class="form-control" id="hidden" value="<?= $plg["id"];?>" placeholder="Ex: ID" />
+              </div>
+            </div>
+            <div class="mb-3 row" class="nama">
+              <label for="nama" class="col-sm-2 col-form-label">NAMA PEMBELI : </label>
+              <div class="col-sm-10">
+                <input type="text" name="nama" class="form-control" id="nama" value="<?= $plg["nama_pelanggan"];?>"placeholder="Ex: Nurmala" />
+              </div>
+            </div>
+            <div class="mb-3 row" class="no-hp">
+              <label for="no_hp" class="col-sm-2 col-form-label">NO HP PEMBELI : </label>
+              <div class="col-sm-10">
+                <input type="text" name="no_hp" class="form-control" id="no_hp" value="<?= $plg["no_hp"];?>" placeholder="Ex: 08123458910" />
+              </div>
+            </div>
+            <div class="mb-3 row" class="alamat">
+              <label for="alamat" class="col-sm-2 col-form-label">ALAMAT PEMBELI : </label>
+              <div class="col-sm-10">
+                <textarea class="form-control" name="alamat" id="alamat" rows="3" value="<?= $plg["alamat"];?>" placeholder="Ex: Desa wanasari RT 06 RW 12"></textarea>
+              </div>
+            </div>
+            <div class="mb-3 row" class="kue">
+              <label for="barang" class="col-sm-2 col-form-label">KUE YANG DI BELI : </label>
+              <div class="col-sm-10">
+                <select name="barang" id="barang" value="<?= $plg["pesanan"];?>" class="form-select">
+                  <option selected>Pilihan Kue</option>
+                  <option value="KUE CUCUR">KUE CUCUR</option>
+                  <option value="KUE KLEPON">KUE KLEPON</option>
+                  <option value="ONDE-ONDE">ONDE-ONDE</option>
+                  <option value="KUE LEMPER">KUE LEMPER</option>
+                  <option value="KUE TALAM">KUE TALAM</option>
+                  <option value="KUE SERABI">KUE SERABI</option>
+                  <option value="KUE LAPIS">KUE LAPIS</option>
+                  <option value="KUE LUMPUR">KUE LUMPUR</option>
+                  <option value="KUE JENTIK MANIS">KUE JENTIK MANIS</option>
+                  <option value="KUE MANGKOK">KUE MANGKOK</option>
+                  <option value="KUE LAPIS LEGIT">KUE LAPIS LEGIT</option>
+                  <option value="KUE MENDUT">KUE MENDUT</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3 row" class="jumlah-pesanan">
+              <label for="pemesanan" class="col-sm-2 col-form-label">JUMLAH PEMESANAN : </label>
+              <div class="col-sm-10">
+                <input type="text" name="pemesanan" class="form-control" id="pemesanan" value="<?= $plg["jumlah_pesanan"];?>" placeholder="Ex: 20" />
+              </div>
+            </div>
+            <div class="form2 mt-3">
+              <button type="submit" name="submit" class="btn btn-primary">Kirim</button>
+              <button type="reset" class="btn btn-danger">Cancel</button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
+    <!-- AKHIR FORM UBAH DATA -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>
 </html>

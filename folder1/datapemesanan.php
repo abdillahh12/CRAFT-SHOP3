@@ -1,6 +1,12 @@
 <?php 
+session_start();
+
+if(!isset($_SESSION["login"])) {
+  header("Location: index.php");
+  exit;
+}
 require 'functions.php';
-$plg = query("SELECT * FROM pelanggan");
+$plg = query("SELECT * FROM pelanggan2");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +27,7 @@ $plg = query("SELECT * FROM pelanggan");
           <h3 class="text-3 ms-4 me-4 p-2 text-center mt-3">DATA PEMESANAN</h3>
         </div>
         <div class="col">
-          <a href="index.html"><button type="button" class="btn btn-primary mt-2"><i class="fa fa-plus">Tambah Pembelian</i></button></a>
+          <a href="index.php"><button type="button" class="btn btn-primary mt-2"><i class="fa fa-plus">Tambah Pembelian</i></button></a>
           <div class="table-responsive">
             <table class="table align-middle table-bordered mt-4">
               <thead>
