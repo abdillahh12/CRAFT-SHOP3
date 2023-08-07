@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@700&family=Anton&family=Lobster&family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@700&family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@700&family=Anton&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  background-color: black;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* single produk */
+.row-produk {
+  background-color: #fff;
+  margin: 0;
+  padding: 5px;
+  padding-top: 16px;
+}
+/* Akhir Single Produk */
+
+/* Garis nama */
+.garis-nama {
+  border-bottom: 2px solid #2d2d2d;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+/* Akhir garis nama */
+
+/* Button keranjang */
+.btn-custom {
+  padding: 10px;
+  font-size: 14px;
+}
+/* Akhir button keranjang */
+
+.text-1 {
+  font-family: "Mukta";
+  font-size: medium;
+}
+
+.text-judul {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+  color: #a0a0a0;
+}
+/* Bagian Hover */
+.bag1:hover {
+  border: 1px solid #2d2d2d;
+  height: 40px;
+}
+.bag2:hover {
+  border: 1px solid #2d2d2d;
+  height: 40px;
+}
+.bag3:hover {
+  border: 1px solid #2d2d2d;
+  height: 40px;
+}
+.bag4:hover {
+  border: 1px solid #2d2d2d;
+  height: 40px;
+}
+.bag5:hover {
+  border: 1px solid #2d2d2d;
+  height: 40px;
+}
+/* Akhir Hover */

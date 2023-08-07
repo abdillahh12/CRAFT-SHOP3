@@ -9,8 +9,8 @@
 body {
   width: 100%;
   height: 100vh;
-  border-color: #4158d0;
-  background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+  border-color: #298bdb;
+  background-image: linear-gradient(43deg, #298bdb 0%, #c850c0 46%, #ffcc70 100%);
   display: grid;
   place-items: center;
 }
@@ -22,7 +22,7 @@ h2 {
 .container {
   background-color: white;
   width: 350px;
-  text-align: center;
+  /* text-align: center; */
   padding: 25px 20px;
   border-radius: 10px;
 }

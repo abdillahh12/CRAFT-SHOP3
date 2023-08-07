@@ -2,23 +2,26 @@
 session_start();
 
 if(!isset($_SESSION["login"])) {
-  header("Location: index.php");
+  header("Location: ../folder_login/index.php");
   exit;
 }
-$connect = mysqli_connect("localhost", "root", "", "toko_kue");
+$connect = mysqli_connect("localhost", "root", "", "toko_kue2");
 
 if(isset($_POST["submit"])) {
   // Ambil elemen dari tiap form
-  $nama = $_POST["nama"];
-  $no_hp = $_POST["no_hp"];
-  $alamat = $_POST["alamat"];
-  $barang = $_POST["barang"];
-  $jumlah_pesanan = $_POST["pesanan"];
+  $nama = htmlspecialchars($_POST["nama"]);
+  $no_hp = htmlspecialchars($_POST["no_hp"]);
+  $alamat = htmlspecialchars($_POST["alamat"]);
+  $barang = htmlspecialchars($_POST["barang"]);
+  $harga_barang = 2000;
+  $jumlah_pesanan = htmlspecialchars($_POST["pesanan"]);
+  $total_jumlah = $harga_barang * $jumlah_pesanan;
+  $tanggal_pemesanan = date("Y-m-d");
 
   // query data
-  $query = "INSERT INTO pelanggan2
+  $query = "INSERT INTO pembeli
                   VALUES
-  ('', '$nama', '$no_hp', '$alamat', '$barang', '$jumlah_pesanan')";
+  ('', '$nama', '$no_hp', '$alamat', '$barang', '$harga_barang', '$jumlah_pesanan', '$total_jumlah', '$tanggal_pemesanan')";
 
   mysqli_query($connect, $query);
 
@@ -26,13 +29,13 @@ if(isset($_POST["submit"])) {
     echo "
     <script>
     alert('Data pesanan berhasil ditambahkan');
-    document.location.href = '../folder1/datapemesanan.php';
+    document.location.href = '../folder produk/kue_klepon.php';
     </script>";
   } else {
     echo "
     <script>
     alert('Maaaf data pesanan gagal ditambahkan');
-    document.location.href = '../folder1/datapemesanan.php';
+    document.location.href = '../folder produk/kue_klepon.php';
     </script>";
     mysqli_error($connect);
   }
@@ -48,7 +51,7 @@ if(isset($_POST["submit"])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../folder css/style_produk.css" />
+    <link rel="stylesheet" href="../folder css/folder style deskripsi produk/style_produk_kue_klepon.css" />
     <link rel="stylesheet" href="../fontawesome/css/all.min.css" />
     <title>KUE KLEPON</title>
   </head>
@@ -66,7 +69,7 @@ if(isset($_POST["submit"])) {
       <div class="container mt-3">
         <nav aria-label="breadcrumb" style="background-color: #fff">
           <ol class="breadcrumb p-3">
-            <li class="breadcrumb-item"><a href="../folder1/index.html" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="../folder index/index.php" class="text-decoration-none">Home</a></li>
           </ol>
         </nav>
       </div>
@@ -77,7 +80,24 @@ if(isset($_POST["submit"])) {
         <div class="row row-produk">
           <div class="col-lg-5">
             <figure class="figure">
-              <img src="../folder foto/foto1.jpg" class="figure-img img-fluid" style="border-radius: 5px" width="450px" />
+              <img src="../folder foto/foto1.jpg" class="figure-img img-fluid" style="border-radius: 5px" width="450px" id="MainImg"/>
+              <figcaption class="figure-caption d-flex justify-content-evenly">
+                <a href="#" class="bag1">
+                  <img src="../folder foto/foto1.jpg" class="figure-img img-fluid" style="border-radius: 5px" width="70px" class="small-img"/>
+                </a>
+                <a href="#" class="bag2">
+                  <img src="../folder foto detail produk/kue_klepon/foto1.jpg" class="figure-img img-fluid" style="border-radius: 5px" width="70px" class="small-img"/>
+                </a>
+                <a href="#" class="bag3">
+                  <img src="../folder foto detail produk/kue_klepon/foto2.jpg" class="figure-img img-fluid" style="border-radius: 5px" width="70px" class="small-img"/>
+                </a>
+                <a href="#" class="bag4">
+                  <img src="../folder foto detail produk/kue_klepon/foto3.jpg" class="figure-img img-fluid" style="border-radius: 5px" width="70px" class="small-img"/>
+                </a>
+                <a href="#" class="bag5">
+                  <img src="../folder foto detail produk/kue_klepon/foto4.jpg" class="figure-img img-fluid" style="border-radius: 5px" width="70px" class="small-img"/>
+                </a>
+              </figcaption>
             </figure>
           </div>
 
@@ -116,25 +136,25 @@ if(isset($_POST["submit"])) {
               <div class="mb-3 row" class="nama">
                 <label for="nama" class="col-sm-2 col-form-label">NAMA PEMBELI : </label>
                 <div class="col-sm-10">
-                  <input type="text" name="nama" class="form-control" id="nama" placeholder="Ex: Nurmala" />
+                  <input type="text" name="nama" class="form-control" id="nama" placeholder="Ex: Nurmala" required/>
                 </div>
               </div>
               <div class="mb-3 row" class="no-hp">
                 <label for="no_hp" class="col-sm-2 col-form-label">NO HP PEMBELI : </label>
                 <div class="col-sm-10">
-                  <input type="text" name="no_hp" class="form-control" id="no_hp" placeholder="Ex: 08123458910" />
+                  <input type="text" name="no_hp" class="form-control" id="no_hp" placeholder="Ex: 08123458910" required/>
                 </div>
               </div>
               <div class="mb-3 row" class="alamat">
                 <label for="alamat" class="col-sm-2 col-form-label">ALAMAT PEMBELI : </label>
                 <div class="col-sm-10">
-                  <textarea class="form-control" name="alamat" id="alamat" rows="3" placeholder="Ex: Desa wanasari RT 06 RW 12"></textarea>
+                  <textarea class="form-control" name="alamat" id="alamat" rows="3" placeholder="Ex: Desa wanasari RT 06 RW 12" required></textarea>
                 </div>
               </div>
               <div class="mb-3 row" class="kue">
                 <label for="barang" class="col-sm-2 col-form-label">KUE YANG DI BELI : </label>
                 <div class="col-sm-10">
-                  <select name="barang" id="barang" class="form-select">
+                  <select name="barang" id="barang" class="form-select" required>
                     <option selected>Pilihan Kue</option>
                     <option value="KUE CUCUR">KUE CUCUR</option>
                     <option value="KUE KLEPON">KUE KLEPON</option>
@@ -154,7 +174,7 @@ if(isset($_POST["submit"])) {
               <div class="mb-3 row" class="jumlah-pesanan">
                 <label for="pesanan" class="col-sm-2 col-form-label">JUMLAH PEMESANAN : </label>
                 <div class="col-sm-10">
-                  <input type="text" name="pesanan" class="form-control" id="pesanan" placeholder="Ex: 20" />
+                  <input type="text" name="pesanan" class="form-control" id="pesanan" placeholder="Ex: 20" required/>
                 </div>
               </div>
               <div class="form2 mt-3">
@@ -174,6 +194,27 @@ if(isset($_POST["submit"])) {
       // Navbar text
       gsap.from(".conn-1", { duration: 1, x: -50, opacity: 0 });
       gsap.from("#form-pemesanan", { duration: 1.5, x: -50, opacity: 0 });
+    </script>
+
+    <script>
+      var MainImg = document.getElementById('MainImg');
+      var smallimg = document.getElementsByClassName('figure-img');
+
+      smallimg[1].onclick = function() {
+        MainImg.src = smallimg[1].src;
+      }
+      smallimg[2].onclick = function() {
+        MainImg.src = smallimg[2].src;
+      }
+      smallimg[3].onclick = function() {
+        MainImg.src = smallimg[3].src;
+      }
+      smallimg[4].onclick = function() {
+        MainImg.src = smallimg[4].src;
+      }
+      smallimg[5].onclick = function() {
+        MainImg.src = smallimg[5].src;
+      }
     </script>
   </body>
 </html>

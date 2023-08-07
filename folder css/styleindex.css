@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@700&family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@700&family=Anton&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@700&family=Anton&family=Geologica:wght@500&family=Lobster&family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alkatra:wght@700&family=Anton&family=Geologica:wght@500&family=Lobster&family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alkatra:wght@700&family=Anton&family=Geologica:wght@500&family=Lobster&family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* .container-2 {
+  border-radius: 5px;
+} */
+section {
+  padding-top: 12rem;
+}
+
+body {
+  background-color: black;
+  font-family: "Poppins", sans-serif;
+}
+
+.text-1 {
+  display: inline-flex;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  background: url("foto\ 15.jpg");
+  font-size: 2rem;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #5b728a54;
+  animation: move 30s linear infinite;
+  letter-spacing: 0.3rem;
+}
+
+@keyframes move {
+  from {
+    background-position: 0 80%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+.text-2 {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #a0a0a0;
+}
+
+.text-3 {
+  font-family: "Impact", sans-serif;
+  font-size: 35px;
+  color: black;
+}
+
+@media screen and (max-width: 994px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
+
+.row-container {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.card-1:hover {
+  border: 1px solid black;
+}
+
+.text-2 {
+  border-radius: 5px;
+}
+
+.text-3 {
+  background-color: white;
+}
+
+.carousel-1 {
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 994px) {
+  .carousel-2 {
+    margin-top: 102px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .text-1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .conn-1 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.carousel-gambar-1 {
+  font-family: "Abril Fatface", cursive;
+}
+
+.carousel-2 {
+  margin-top: 100px;
+}
+
+.container-1 {
+  background-color: #aeaeae;
+}
+
+.container-6 {
+  background-color: #eaeaea;
+}
+
+/* Styling Modifikasi hover Navbar */
+.bag-1:hover {
+  background-color: #eaeaea;
+  border-radius: 7px;
+  transition-duration: 1s;
+  transform: scale(0.5s);
+}
+.bag-2:hover {
+  background-color: #eaeaea;
+  border-radius: 7px;
+  transition-duration: 1s;
+  transform: scale(0.5s);
+}
+.bag-3:hover {
+  background-color: #eaeaea;
+  border-radius: 7px;
+  transition-duration: 1s;
+  transform: scale(0.5s);
+}
+.bag-4:hover {
+  background-color: #eaeaea;
+  border-radius: 7px;
+  transition-duration: 1s;
+  transform: scale(0.5s);
+}
+.bag-5:hover {
+  background-color: #eaeaea;
+  border-radius: 7px;
+  transition-duration: 1s;
+  transform: scale(0.5s);
+}
+.bag-6:hover {
+  background-color: #eaeaea;
+  border-radius: 7px;
+  transition-duration: 1s;
+  transform: scale(0.5s);
+}
+
+.nav-item {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+
+.nav-item > a:hover {
+  color: blue;
+}
+/* Akhir styling */
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  #product {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* Styling anggota tim*/
+/* .carousel-inner-tim {
+  background-color: #aeaeae;
+} */
+.container-item1 {
+  display: flex;
+  justify-content: center;
+}
+
+.text-tim {
+  font-size: 40px;
+  font-family: "Impact", sans-serif;
+  color: black;
+}
+/* .col-item {
+  padding: 25px;
+} */
+
+/* Akhir styling anggota tim*/
+
+/* Styling contact */
+
+/* Akhir styling contact */
+
+/* About */
+
+.text-about {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+
+.text-about-2 {
+  font-weight: 200;
+  color: #a0a0a0;
+  font-size: 20px;
+}
+
+/* Akhir About? */
+
+/* Text Product */
+
+.text-product {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+
+/* Akhir Product */
+
+.hubungi-kami {
+  padding-top: 40px;
+  padding-right: 40px;
+  margin-right: 30px;
+}
+
+.contact {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+
+.hubungi-kami-2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+
+.form-label {
+  font-family: "Poppins", sans-serif;
+  color: #a0a0a0;
+}
